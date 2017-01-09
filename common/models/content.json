@@ -1,0 +1,24 @@
+{
+  "name": "Content",
+  "plural": "contents",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "TimeStamp": true
+  },
+  "properties": {
+    "mainContent": {
+      "type": "String"
+    },
+    "coordinates": {
+      "type": "Geopoint"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
