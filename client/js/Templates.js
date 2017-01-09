@@ -10,6 +10,7 @@ define(function (require) {
         todosCompositeView: require('tpl!../templates/todoListCompositeView.tpl'),
         todoItemView: require('tpl!../templates/todoItemView.tpl'),
         footerLayoutView: require('tpl!../templates/footerLayoutView.tpl'),
-        infoItemView: require('tpl!../templates/infoItemView.tpl')
+        infoItemView: require('tpl!../templates/infoItemView.tpl'),
+        mapItemView: require('tpl!../templates/mapItemView.tpl')
     };
 });

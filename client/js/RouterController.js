@@ -15,6 +15,9 @@ define([
 
         showAboutView: function() {
             window.app.vent.trigger('about:show');
-        }
+        },
+      showMapView: function() {
+        window.app.vent.trigger('map:show');
+      }
     };
 });

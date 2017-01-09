@@ -5,6 +5,7 @@
             <div id="header-alert" class="alert alert-success col-md-7 navbar-button" style="display:none;"></div>
             <% if(logged_in){ %>
                 <ul id="headerlinks" class="nav navbar-nav navbar-left">
+                    <a href="#/map">Map</a>
                     <a href="#/todos">Todos</a>
                     <a href="#/about">About</a>
                 </ul>

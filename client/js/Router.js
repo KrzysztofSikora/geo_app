@@ -1,13 +1,15 @@
 define([
-    'marionette'
+  'marionette'
 ], function (Marionette) {
-    'use strict';
+  'use strict';
 
-    return Marionette.AppRouter.extend({
-        appRoutes: {
-            'login': 'showLoginView',
-            'about': 'showAboutView',
-            '*filter': 'setTodosFilter'
-        }
-    });
+  return Marionette.AppRouter.extend({
+    appRoutes: {
+      'login': 'showLoginView',
+      'about': 'showAboutView',
+      'map': 'showMapView',
+      '*filter': 'setTodosFilter'
+
+    }
+  });
 });
