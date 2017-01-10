@@ -14,7 +14,8 @@
     ]
   },
   "User": {
-    "dataSource": "mongo"
+    "dataSource": "mongo",
+    "public": false
   },
   "AccessToken": {
     "dataSource": "mongo",
@@ -26,13 +27,17 @@
   },
   "RoleMapping": {
     "dataSource": "mongo",
-    "public": false
+    "public": true
   },
   "Role": {
     "dataSource": "mongo",
-    "public": false
+    "public": true
   },
   "Content": {
+    "dataSource": "mongo",
+    "public": true
+  },
+  "Client": {
     "dataSource": "mongo",
     "public": true
   }

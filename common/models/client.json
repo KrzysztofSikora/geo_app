@@ -1,24 +1,20 @@
 {
-  "name": "Content",
-  "plural": "contents",
-  "base": "PersistedModel",
+  "name": "Client",
+  "plural": "clients",
+  "base": "User",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
-  "mixins": {
-    "TimeStamp": true
-  },
-  "properties": {
-    "mainContent": {
-      "type": "String"
-    },
-    "coordinates": {
-      "type": "Geopoint"
+  "properties": {},
+  "validations": [],
+  "relations": {
+    "contents": {
+      "type": "hasMany",
+      "model": "Content",
+      "foreignKey": ""
     }
   },
-  "validations": [],
-  "relations": {},
   "acls": [{
     "accessType": "*",
     "principalType": "ROLE",
