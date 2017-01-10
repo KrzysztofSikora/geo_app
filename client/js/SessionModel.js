@@ -15,7 +15,7 @@ define([
         },
 
         url: function() {
-            return '/api/Users';
+            return '/api/clients';
         },
 
         updateSessionUser: function(userData) {
@@ -34,7 +34,7 @@ define([
                 var user_id = $.cookie('user_id');
                 var self = this;
                 this.fetch({
-                    url: this.url() + '/' + user_id,
+                    url: this.url() + "?access_token=" + access_token,//     '/' + user_id,
                     headers: { 'Authorization': access_token },
                     success: function(mod, res) {
                         if (!res.error) {
@@ -84,16 +84,17 @@ define([
                 data:  JSON.stringify(postData),
                 success: function(res) {
                     if ('login' === opts.method) {
+                      console.log(res)
                         self.user.set({ id: res.userId });
                         $.cookie('user_id', res.userId, { expires: 30 });
                         $.cookie('access_token', res.id, { expires: 30 });
                         self.setupAjax(res.id);
-                        self.user.url = '/api/Users/' + res.userId;
+                        self.user.url = '/api/clients?access_token=' + res.id;//  change from res.userId
                         self.user.fetch({ async: false });
                         self.set({ user_id: res.userId, logged_in: true });
                     } else if ('signup' === opts.method) {
                         $.ajax({
-                            url: '/api/Users/login',
+                            url: '/api/clients/login',
                             contentType: 'application/json',
                             dataType: 'json',
                             type: 'POST',
@@ -103,7 +104,7 @@ define([
                                 $.cookie('user_id', token.userId, { expires: 30 });
                                 $.cookie('access_token', token.id, { expires: 30 });
                                 self.setupAjax(token.id);
-                                self.user.url = '/api/Users/' + token.userId;
+                                self.user.url = '/api/clients/' + token.userId;
                                 self.user.fetch({ async: false });
                                 self.set({ user_id: token.userId, logged_in: true });
                             }

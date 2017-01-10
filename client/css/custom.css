@@ -112,3 +112,7 @@ body {
   background: #937777;
   color: #ffffff;
 }
+
+#mapView {
+  height: 400px;
+}

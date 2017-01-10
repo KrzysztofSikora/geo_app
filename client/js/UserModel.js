@@ -11,7 +11,7 @@ define([
         },
 
         url: function() {
-            return '/api/Users';
+            return '/api/clients';
         }
     });
 });

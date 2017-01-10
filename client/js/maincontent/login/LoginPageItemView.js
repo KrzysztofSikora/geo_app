@@ -70,7 +70,7 @@ define([
             if (event) event.preventDefault();
             if (this.$('#login-form').parsley('validate')) {
                 window.app.session.login({
-                    username: this.$('#login-username-input').val(),
+                    email: this.$('#login-username-input').val(),
                     password: this.$('#login-password-input').val()
                 }, {
                     success: function(mod, res) {
