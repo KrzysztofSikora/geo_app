@@ -15,7 +15,7 @@ define([
 
 
     initMapAndAutocomplete: function (autocompleteField, mapView) {
-
+      var marker;
       var mapOption = {
         zoom: 3,
         center: {lat: 37.1, lng: -95.7},
@@ -39,10 +39,13 @@ define([
 
         // get to location found
 
+        // delete last marker if is defined
+        if(marker != undefined)
+          marker.setMap(null);
 
         if (place.geometry.location) {
 
-          var marker = new google.maps.Marker({
+          marker = new google.maps.Marker({
             map: map,
             anchorPoint: new google.maps.Point(0, 0)
           });
