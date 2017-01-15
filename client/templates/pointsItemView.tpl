@@ -1,7 +1,5 @@
-<div id="map">
-    <h1>Map</h1>
-  <input id="autocompleteField" type="text" size="40">
-  <div id="mapView"></div>
+<div id="points">
+    <h1>Points list</h1>
     <p>Geo application</p>
     <p>Created by <a href="http://github.com/michael-lee">Krzysztof Sikora</a></p>
 </div>

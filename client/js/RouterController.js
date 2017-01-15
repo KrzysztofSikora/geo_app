@@ -1,23 +1,26 @@
 define([
 ], function () {
-    'use strict';
+    "use strict";
 
     return {
         setTodosFilter: function(param) {
             var filter = param && param.trim() !== 'todos' && param.trim() || '';
-            window.app.vent.trigger('todos:filter', filter);
+            window.app.vent.trigger("todos:filter", filter);
         },
 
         showLoginView: function() {
             window.app.session.resetSession();
-            window.app.vent.trigger('login:show');
+            window.app.vent.trigger("login:show");
         },
 
         showAboutView: function() {
-            window.app.vent.trigger('about:show');
+            window.app.vent.trigger("about:show");
         },
       showMapView: function() {
-        window.app.vent.trigger('map:show');
+        window.app.vent.trigger("map:show");
+      },
+      showPointsView: function() {
+        window.app.vent.trigger("points:show");
       }
     };
 });

@@ -11,6 +11,7 @@ define(function (require) {
         todoItemView: require('tpl!../templates/todoItemView.tpl'),
         footerLayoutView: require('tpl!../templates/footerLayoutView.tpl'),
         infoItemView: require('tpl!../templates/infoItemView.tpl'),
-        mapItemView: require('tpl!../templates/mapItemView.tpl')
+        mapItemView: require('tpl!../templates/mapItemView.tpl'),
+        pointsItemView: require('tpl!../templates/pointsItemView.tpl')
     };
 });

@@ -1,11 +1,12 @@
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="navbar-header">
         <div class="container">
-            <a class="navbar-brand" href="/">Loopback Marionette</a>
+            <a class="navbar-brand" href="/">Geo application</a>
             <div id="header-alert" class="alert alert-success col-md-7 navbar-button" style="display:none;"></div>
             <% if(logged_in){ %>
                 <ul id="headerlinks" class="nav navbar-nav navbar-left">
                     <a href="#/map">Map</a>
+                    <a href="#/points">Points</a>
                     <a href="#/todos">Todos</a>
                     <a href="#/about">About</a>
                 </ul>
