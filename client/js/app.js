@@ -7,8 +7,9 @@ define([
   "maincontent/about/AboutItemView",
   "maincontent/map/MapItemView",
   "maincontent/points/PointsItemView",
+  "maincontent/contents/ContentsItemView",
   "SessionModel"
-], function (Backbone, Marionette, NavbarItemView, TodosLayoutView, LoginPageItemView, AboutItemView, MapItemView,PointsItemView,
+], function (Backbone, Marionette, NavbarItemView, TodosLayoutView, LoginPageItemView, AboutItemView, MapItemView,PointsItemView,ContentsItemView,
              SessionModel) {
   'use strict';
 
@@ -48,6 +49,10 @@ define([
     app.maincontent.show(app.pointsItemView);
   };
 
+  app.showContentsPage = function () {
+    app.contentsItemView = new ContentsItemView();
+    app.maincontent.show(app.contentsItemView);
+  };
 
   app.showMainContent = function () {
     if (app.session.get('logged_in') === true) {
@@ -81,6 +86,7 @@ define([
 
   app.vent.on("map:show", app.showMapPage);
   app.vent.on("points:show", app.showPointsPage);
+  app.vent.on("contents:show", app.showContentsPage);
 
   app.vent.on('todos:filter', function(filter) {
       app.showMainContent();

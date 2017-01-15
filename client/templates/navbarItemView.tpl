@@ -7,6 +7,7 @@
                 <ul id="headerlinks" class="nav navbar-nav navbar-left">
                     <a href="#/map">Map</a>
                     <a href="#/points">Points</a>
+                    <a href="#/contents">Contents</a>
                     <a href="#/todos">Todos</a>
                     <a href="#/about">About</a>
                 </ul>

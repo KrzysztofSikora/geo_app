@@ -21,6 +21,9 @@ define([
       },
       showPointsView: function() {
         window.app.vent.trigger("points:show");
+      },
+      showContentsView: function() {
+        window.app.vent.trigger("contents:show");
       }
     };
 });
