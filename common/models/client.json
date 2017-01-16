@@ -28,6 +28,12 @@
       "permission": "ALLOW"
     },
     {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW"
+    },
+    {
       "principalType": "ROLE",
       "principalId": "client",
       "permission": "ALLOW"

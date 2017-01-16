@@ -54,6 +54,8 @@ describe("Geo app Create contents", function () {
 
         console.log("Login", loginRes.body);
 
+        userId = loginRes.body.userId;
+        token = loginRes.body.id;
 
         assert.equal(loginRes.status, 200);
         assert.ok(loginRes.body);
@@ -74,8 +76,8 @@ describe("Geo app Create contents", function () {
   function createContents() {
 
 
-    var url = domain + "/api/contents/" + userId + "?access_token=" + token;
-
+    var url = domain + "/api/clients/" + userId + "/contents" + "?access_token=" + token;
+console.log(userId, token);
 
     superagent
       .post(url)
@@ -100,6 +102,7 @@ describe("Geo app Create contents", function () {
 
   }
 
+  it("create contents", createContents);
   it("create contents", createContents);
   it("create contents", createContents);
 

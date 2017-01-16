@@ -1,23 +1,29 @@
 module.exports = {
 
-  admin :
-
-         [{
-          "email": "admin@geoapp.com",
-          "password": "admin"
-        }],
+  admin: [{
+    "email": "admin@geoapp.com",
+    "password": "admin"
+  }],
   contents: [{
-      "mainContent": "test test test",
-      "coordinates": {
-        "lat": 37.747646,
-        "lng": -122.465317
-      }
-  },{
-    "mainContent": "sds tdsds ds",
+    "mainContent": "os.Kalinowe",
     "coordinates": {
-      "lat": 37.747645,
-      "lng": -122.465316
+      "lat": 50.0910311,
+      "lng": 20.0109664
     }
-  }]
+  }, {
+    "mainContent": "Warszawa",
+    "coordinates": {
+      "lat": 52.232855,
+      "lng": 20.9211131
+    }
+  },
+    {
+      "mainContent": "Lugano",
+      "coordinates": {
+        "lat": 46.0294037,
+        "lng": 8.9247654
+      }
+    }
+  ]
 
 };

@@ -9,6 +9,21 @@ module.exports = function (server) {
   var app = require('../../server/server.js');
 
   var Content = app.models.Content;
+  var RoleMapping = app.models.RoleMapping;
+
+
+
+  /**
+   *
+   * https://github.com/strongloop/loopback-connector-mongodb/issues/128
+   * repair no ObjectID while create RoleMapping
+   */
+
+  RoleMapping.defineProperty('principalId', {
+    type: RoleMapping.getDataSource().connector.getDefaultIdType(),
+  });
+
+
 
 
   //@TODO Add automaticly created Admin and first user, role and role mapping

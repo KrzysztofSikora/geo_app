@@ -44,13 +44,13 @@ module.exports = function(Content) {
 //@TODO skeleton observer
   Content.beforeRemote("create", function (next, modelInstance, ctx) {
 
-    console.log("Tworzenie");
+    // console.log("Tworzenie");
+    //
+    // for (var i = 0; i < 5; i++)
+    //   console.log(i);
 
-    for (var i = 0; i < 5; i++)
-      console.log(i);
 
-
-    next();
+   next();
 
   });
 
