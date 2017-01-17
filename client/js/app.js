@@ -2,7 +2,6 @@ define([
   "backbone",
   "marionette",
   "navbar/NavbarItemView",
-  "maincontent/todos/TodosLayoutView",
   "maincontent/login/LoginPageItemView",
   "maincontent/about/AboutItemView",
   "maincontent/map/MapItemView",
@@ -10,7 +9,7 @@ define([
   "maincontent/contents/ContentsItemView",
   "maincontent/contents/ContentsListCollection",
   "SessionModel"
-], function (Backbone, Marionette, NavbarItemView, TodosLayoutView, LoginPageItemView, AboutItemView, MapItemView,PointsItemView,ContentsItemView,
+], function (Backbone, Marionette, NavbarItemView, LoginPageItemView, AboutItemView, MapItemView,PointsItemView,ContentsItemView,
              ContentsListCollection,SessionModel) {
   "use strict";
 
@@ -64,10 +63,10 @@ define([
 
   app.showMainContent = function () {
     if (app.session.get('logged_in') === true) {
-      app.todosLayoutView = new TodosLayoutView();
-      app.maincontent.show(app.todosLayoutView);
+      app.mapItemView = new MapItemView();
+      app.maincontent.show(app.mapItemView);
       if (Backbone.history.fragment === '' || Backbone.history.fragment === 'login') {
-        Backbone.history.navigate('#/todos', {trigger: true});
+        Backbone.history.navigate('#/map', {trigger: true});
       }
     } else {
       app.showLoginPage();
@@ -96,12 +95,6 @@ define([
   app.vent.on("points:show", app.showPointsPage);
   app.vent.on("contents:show", app.showContentsPage);
 
-  app.vent.on('todos:filter', function(filter) {
-      app.showMainContent();
-      if (app.todosLayoutView) {
-          app.todosLayoutView.updateFilter(filter);
-      }
-  });
 
   return window.app = app;
 });
