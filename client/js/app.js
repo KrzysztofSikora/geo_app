@@ -8,10 +8,11 @@ define([
   "maincontent/map/MapItemView",
   "maincontent/points/PointsItemView",
   "maincontent/contents/ContentsItemView",
+  "maincontent/contents/ContentsListCollection",
   "SessionModel"
 ], function (Backbone, Marionette, NavbarItemView, TodosLayoutView, LoginPageItemView, AboutItemView, MapItemView,PointsItemView,ContentsItemView,
-             SessionModel) {
-  'use strict';
+             ContentsListCollection,SessionModel) {
+  "use strict";
 
   var app = new Marionette.Application();
 
@@ -50,8 +51,15 @@ define([
   };
 
   app.showContentsPage = function () {
-    app.contentsItemView = new ContentsItemView();
-    app.maincontent.show(app.contentsItemView);
+    (this.ContentsListCollection = new ContentsListCollection()).fetch().then((function (res) {
+
+      app.contentsItemView = new ContentsItemView({
+        collection: this
+      });
+      app.maincontent.show(app.contentsItemView);
+
+    }).bind(this.ContentsListCollection));
+
   };
 
   app.showMainContent = function () {

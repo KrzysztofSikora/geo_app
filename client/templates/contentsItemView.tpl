@@ -2,7 +2,7 @@
     <h1>Contents add</h1>
   <input id="autocompleteField" type="text" size="40" class="form-control"><br />
   <div id="mapView"></div>
-  <button type="button" class="btn btn-default btn-lg">
+  <button type="button" id="putPoint" class="btn btn-default btn-lg">
     <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Save
   </button>
     <p>Geo application</p>

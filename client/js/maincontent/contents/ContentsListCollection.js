@@ -1,12 +1,12 @@
 define([
   "backbone",
-  "maincontent/locations/LocationsModel",
-  // "backbone.paginator"
-], function (Backbone, LocationsModel) {
+  "maincontent/contents/ContentsModel",
+   "backbone.paginator"
+], function (Backbone, ContentsModel) {
   "use strict";
 
   return Backbone.PageableCollection.extend({
-    model: LocationsModel,
+    model: ContentsModel,
 
     // url to get collection and access_token handler
     url: function () {

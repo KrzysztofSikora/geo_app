@@ -1,13 +1,15 @@
 define([
-  'marionette',
-  'Templates'
+  "marionette",
+  "Templates"
 ], function (Marionette, Templates) {
-  'use strict';
+  "use strict";
 
   return Marionette.ItemView.extend({
     template: Templates.contentsItemView,
 
-
+events:{
+  "click #putPoint": "putPoint"
+},
     onRender: function () {
 
       this.initMapAndAutocomplete(this.$el.find("#autocompleteField")[0], this.$el.find("#mapView")[0])
@@ -60,6 +62,13 @@ define([
 
       });
 
+    },
+    putPoint: function () {
+
+      console.log("save", this.collection)
     }
   });
+
+
+
 });

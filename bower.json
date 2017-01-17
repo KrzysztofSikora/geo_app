@@ -1,0 +1,18 @@
+{
+  "name": "geo_app",
+  "version": "1.0.1",
+  "dependencies": {
+    "text": "2.0.14",
+    "requirejs": "2.1.22",
+    "jquery": "2.1.4",
+    "underscore": "1.6.0",
+    "backbone": "1.1.2",
+    "backbone.marionette": "2.4.4",
+    "bootstrap": "3.3.6",
+    "jquery.cookie": "1.4.1",
+    "todomvc-common": "0.3.1",
+    "backgrid": "^0.3.7",
+    "moment": "^2.17.1",
+    "backbone.paginator": "^2.0.5"
+  }
+}
