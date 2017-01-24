@@ -18,7 +18,21 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+
+    "client": {
+      "type": "referencesMany",
+      "model": "Client",
+      "foreignKey": "clientIds",
+      "options": {
+        "validate": true,
+        "forceId": false
+      }
+    }
+
+
+
+  },
   "acls": [{
     "accessType": "*",
     "principalType": "ROLE",
