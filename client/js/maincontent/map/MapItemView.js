@@ -9,12 +9,12 @@ define([
 
 
     onRender: function () {
-
       this.initMapAndAutocomplete(this.$el.find("#autocompleteField")[0], this.$el.find("#mapView")[0])
     },
 
 
     initMapAndAutocomplete: function (autocompleteField, mapView) {
+
       var marker;
       var mapOption = {
         zoom: 3,
@@ -32,33 +32,19 @@ define([
         google.maps.event.trigger(map, "resize");
       });
 
-      var autocomplete = new google.maps.places.Autocomplete(autocompleteField);
 
-      autocomplete.addListener("place_changed", function () {
-        var place = autocomplete.getPlace();
+      if (this.collection != undefined) {
 
-        // get to location found
-
-        // delete last marker if is defined
-        if(marker != undefined)
-          marker.setMap(null);
-
-        if (place.geometry.location) {
-
+        for (var i = 0; i < this.collection.length; i++) {
+          var model = this.collection.at(i);
           marker = new google.maps.Marker({
             map: map,
-            anchorPoint: new google.maps.Point(0, 0)
+            position: {lat: model.get("coordinates").lat, lng: model.get("coordinates").lng}
           });
-          marker.setPosition(place.geometry.location);
-          marker.setVisible(true);
+
 
         }
-
-        map.panTo(place.geometry.location);
-        map.setZoom(10);
-
-
-      });
+      }
 
     }
   });

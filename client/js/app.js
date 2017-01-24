@@ -40,8 +40,21 @@ define([
   };
 
   app.showMapPage = function () {
-    app.mapItemView = new MapItemView();
-    app.maincontent.show(app.mapItemView);
+
+
+    (this.ContentsListCollection = new ContentsListCollection()).fetch().then((function (res) {
+
+      app.mapItemView = new MapItemView({
+        collection: this
+      });
+      app.maincontent.show(app.mapItemView);
+
+    }).bind(this.ContentsListCollection));
+
+
+
+
+
   };
 
   app.showPointsPage = function () {
