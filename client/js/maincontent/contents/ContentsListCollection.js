@@ -20,7 +20,7 @@ define([
 
     mode: "client",
     state: {
-      pageSize: 15
+      pageSize: 5
       // sortKey: "updated",
       // order: 1
     },

@@ -1,5 +1,7 @@
 require.config({
   paths: {
+    'backgrid': '../bower_components/backgrid/lib/backgrid',
+    'lunr': '../bower_components/lunr.js/lunr',
     'underscore': '../bower_components/underscore/underscore',
     'backbone': '../bower_components/backbone/backbone',
     'marionette': '../bower_components/backbone.marionette/lib/backbone.marionette',
@@ -9,10 +11,15 @@ require.config({
     'jquery.cookie': '../bower_components/jquery.cookie/jquery.cookie',
     'parsley': '../lib/parsley/parsley',
     'tpl': '../lib/tpl/tpl',
-    'backbone.paginator': '../bower_components/backbone.paginator/lib/backbone.paginator'
+    'backgrid-paginator': '../bower_components/backgrid-paginator/backgrid-paginator',
+    'backbone.paginator': '../bower_components/backbone.paginator/lib/backbone.paginator',
+    'backgrid-filter': '../bower_components/backgrid-filter/backgrid-filter'
 
   },
   shim: {
+    'lunr': {
+      exports: 'lunr'
+    },
     'underscore': {
       exports: '_'
     },
@@ -34,9 +41,17 @@ require.config({
     'jquery.cookie': {
       deps: ['jquery']
     },
+    'backbone-paginator': {
+      deps: ['backbone'],
+      exports: 'backbone-paginator'
+    },
     'backbone.paginator': {
       deps: ['backbone'],
       exports: 'backbone.paginator'
+    },
+    'backgrid-filter': {
+      deps: ['backgrid', 'lunr'],
+      exports: 'Backgrid-filter'
     }
   },
   deps: ['jquery', 'underscore']
@@ -47,9 +62,22 @@ require([
   'backbone',
   'Router',
   'RouterController',
-  'jquery.cookie'
+  'jquery.cookie',
+  'backgrid-paginator'
+
 ], function (app, Backbone, Router, RouterController) {
   'use strict';
+
+
+// add bootstrap pagination
+  var Paginator = Backgrid.Extension.Paginator = Backgrid.Extension.Paginator.extend({
+    render: function () {
+      Paginator.__super__.render.apply(this, arguments);
+      this.$el.find('ul').addClass('pagination');
+      return this;
+    }
+  });
+
 
   $.ajaxSetup({
     cache: false,

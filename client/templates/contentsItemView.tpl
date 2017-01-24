@@ -5,6 +5,9 @@
   <button type="button" id="putPoint" class="btn btn-default btn-lg">
     <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Save
   </button>
+
+  <div id="table-container-grid"></div>
+  <div id="pagination"></div>
     <p>Geo application</p>
     <p>Created by <a href="http://github.com/michael-lee">Krzysztof Sikora</a></p>
 </div>

@@ -1,6 +1,9 @@
 define([
   "marionette",
-  "Templates"
+  "Templates",
+  "backgrid",
+  "backgrid-filter",
+  "backgrid-paginator"
 ], function (Marionette, Templates) {
   "use strict";
 
@@ -10,10 +13,77 @@ define([
 events:{
   "click #putPoint": "putPoint"
 },
+
+
+    initPagination: function () {
+
+      var paginator = new Backgrid.Extension.Paginator({
+        collection: this.collection,
+        className: "text-center"
+      });
+
+      this.$el.find("#pagination").html(paginator.render().el);
+
+
+    },
+
+
+
+
     onRender: function () {
+
+
+      var _this = this;
+
+
+      var columns = [
+        {
+          name: "mainContent",
+          label: "Content",
+          editable: false,
+          sortValue: function (model, sortKey) {
+            return model.get(sortKey).toLowerCase();
+          },
+          cell: "string" // An integer cell is a number cell that displays humanized integers
+        },
+        {
+          name: "clientId",
+          label: "Client",
+          editable: false,
+          cell: "string" // An integer cell is a number cell that displays humanized integers
+        },{
+          name: "createdAt",
+          label: "CreatedAt",
+          editable: false,
+          cell: "string" // An integer cell is a number cell that displays humanized integers
+        },{
+          name: "updatedAt",
+          label: "CpdatedAt",
+          editable: false,
+          cell: "string" // An integer cell is a number cell that displays humanized integers
+        }];
+
+
+
+      // Initialize a new Grid instance
+      this.grid = new Backgrid.Grid({
+        columns: columns,
+        collection: this.collection
+      });
+      this.$el.find("#table-container-grid").append(this.grid.render().el);
+
+
+
+      this.initPagination();
 
       this.initMapAndAutocomplete(this.$el.find("#autocompleteField")[0], this.$el.find("#mapView")[0])
     },
+
+
+
+
+
+
 
 
     initMapAndAutocomplete: function (autocompleteField, mapView) {
@@ -67,6 +137,12 @@ events:{
 
       console.log("save", this.collection)
     }
+
+
+
+
+
+
   });
 
 

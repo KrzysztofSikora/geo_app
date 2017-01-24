@@ -6,6 +6,14 @@
   "options": {
     "validateUpsert": true
   },
+  "mixins": {
+    "Monitor": true,
+    "TimeStamp": {
+      "required": false,
+      "validateUpsert": true,
+      "silenceWarnings": false
+    }
+  },
   "properties": {},
   "validations": [],
   "relations": {

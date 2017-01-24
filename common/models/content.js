@@ -95,6 +95,35 @@ module.exports = function(Content) {
 
   };
 
+  /**
+   *
+   * get contents by filter
+   *
+   * @param filter
+   * @param req
+   * @param cb
+   * @returns {*}
+   */
+
+  Content.search = function (filter, req, cb) {
+
+    console.log(filter)
+
+    return Content.find(filter).then(function (res) {
+
+      return cb(null, res);
+    }).catch(function (err) {
+      return cb(err, null);
+    });
+
+
+
+
+
+  };
+
+
+
 
   /**
    *
@@ -103,8 +132,10 @@ module.exports = function(Content) {
    */
   Content.remoteMethod("search", {
     http: {path: "/search", verb: "get"},
-    accepts: [{arg: "filter", type: "object"}],
-    returns: [{arg: "data", type: "any", description: "Content array by filter", root: true}],
-    description: "It search content database by filter"
+    accepts: [{arg: "filter", type: "object"},{arg: "req", type: "object", http: {source: "req"}}],
+    returns: [{arg: "data", type: "any", description: "Content with filter" , root: true }],
+    description: "It search for content."
   });
+
+
 };
