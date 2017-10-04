@@ -23,6 +23,7 @@ define([
   });
 
   app.showNavBar = function () {
+
     if (app.navbarItemView === undefined) {
       app.navbarItemView = new NavbarItemView();
       app.navbar.show(app.navbarItemView);
@@ -30,17 +31,24 @@ define([
   };
 
   app.showLoginPage = function () {
-    app.loginPageItemView = new LoginPageItemView();
+
+      app.loginPageItemView = new LoginPageItemView();
     app.maincontent.show(app.loginPageItemView);
+
   };
 
   app.showAboutPage = function () {
+    if (app.session.get('logged_in') === true) {
     app.aboutPageItemView = new AboutItemView();
     app.maincontent.show(app.aboutPageItemView);
+    } else {
+      app.showLoginPage();
+      Backbone.history.navigate('#/login');
+    }
   };
 
   app.showMapPage = function () {
-
+    if (app.session.get('logged_in') === true) {
 
     (this.ContentsListCollection = new ContentsListCollection()).fetch().then((function (res) {
 
@@ -51,18 +59,26 @@ define([
 
     }).bind(this.ContentsListCollection));
 
-
-
-
-
+    } else {
+      app.showLoginPage();
+      Backbone.history.navigate('#/login');
+    }
   };
 
   app.showPointsPage = function () {
+    if (app.session.get('logged_in') === true) {
+
     app.pointsItemView = new PointsItemView();
     app.maincontent.show(app.pointsItemView);
+
+    } else {
+      app.showLoginPage();
+      Backbone.history.navigate('#/login');
+    }
   };
 
   app.showContentsPage = function () {
+    if (app.session.get('logged_in') === true) {
     (this.ContentsListCollection = new ContentsListCollection()).fetch().then((function (res) {
 
       app.contentsItemView = new ContentsItemView({
@@ -72,12 +88,27 @@ define([
 
     }).bind(this.ContentsListCollection));
 
+    } else {
+      app.showLoginPage();
+      Backbone.history.navigate('#/login');
+    }
+
   };
 
   app.showMainContent = function () {
     if (app.session.get('logged_in') === true) {
-      app.mapItemView = new MapItemView();
-      app.maincontent.show(app.mapItemView);
+
+      (this.ContentsListCollection = new ContentsListCollection()).fetch().then((function (res) {
+
+        app.mapItemView = new MapItemView({
+          collection: this
+        });
+        app.maincontent.show(app.mapItemView);
+
+      }).bind(this.ContentsListCollection));
+
+
+
       if (Backbone.history.fragment === '' || Backbone.history.fragment === 'login') {
         Backbone.history.navigate('#/map', {trigger: true});
       }

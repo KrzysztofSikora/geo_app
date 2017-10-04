@@ -1,0 +1,16 @@
+{
+
+  "facebook": {
+    "provider": "facebook-token",
+    "module": "passport-facebook-token",
+    "strategy": "FacebookTokenStrategy",
+    "clientID": "146408199294558",
+    "clientSecret": "fdd4fa6a3b26dcb18c97e48b61e9e43a",
+    "callbackPath": "/auth/facebook",
+    "profileFields": ["gender","link","locale","name","timezone","verified","email","picture.type(large)","updated_time"],
+    "session" : true,
+    "json": true
+
+  }
+
+}

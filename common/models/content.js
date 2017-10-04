@@ -42,18 +42,17 @@ module.exports = function(Content) {
   }
 
 //@TODO skeleton observer
-  Content.beforeRemote("create", function (next, modelInstance, ctx) {
-
-    // console.log("Tworzenie");
-    //
-    // for (var i = 0; i < 5; i++)
-    //   console.log(i);
-
-
-   next();
-
-  });
-
+//   Content.beforeRemote("create", function (next, modelInstance, ctx) {
+//
+//     // console.log("Tworzenie");
+//     //
+//     // for (var i = 0; i < 5; i++)
+//     //   console.log(i);
+//
+//
+//    next();
+//
+//   });
   Content.search = function (filter, cb) {
 
 

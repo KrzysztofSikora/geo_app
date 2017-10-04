@@ -31,7 +31,29 @@
 <section id="navbar">
 </section>
 <section id="maincontent">
+
 </section>
+
+
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '146408199294558',
+      cookie     : true,
+      xfbml      : true,
+      version    : 'fdd4fa6a3b26dcb18c97e48b61e9e43a'
+    });
+    FB.AppEvents.logPageView();
+  };
+
+  (function(d, s, id){
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
 <!--<script src="/bower_components/todomvc-common/base.js"></script>-->
 <script data-main="js/main" src="/bower_components/requirejs/require.js"></script>
 </body>
