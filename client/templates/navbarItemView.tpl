@@ -10,6 +10,7 @@
                     <a href="#/contents">Contents</a>
                     <a href="#/todos">Todos</a>
                     <a href="#/about">About</a>
+                    <a href="#/users">Users</a>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">

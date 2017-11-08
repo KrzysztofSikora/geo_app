@@ -10,6 +10,7 @@ define(function (require) {
         infoItemView: require('tpl!../templates/infoItemView.tpl'),
         mapItemView: require('tpl!../templates/mapItemView.tpl'),
         pointsItemView: require('tpl!../templates/pointsItemView.tpl'),
-        contentsItemView: require('tpl!../templates/contentsItemView.tpl')
+        contentsItemView: require('tpl!../templates/contentsItemView.tpl'),
+        usersItemView: require('tpl!../templates/usersItemView.tpl')
     };
 });

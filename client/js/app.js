@@ -8,9 +8,11 @@ define([
   "maincontent/points/PointsItemView",
   "maincontent/contents/ContentsItemView",
   "maincontent/contents/ContentsListCollection",
+  "maincontent/users/UsersItemView",
+  "maincontent/users/UsersListCollection",
   "SessionModel"
 ], function (Backbone, Marionette, NavbarItemView, LoginPageItemView, AboutItemView, MapItemView,PointsItemView,ContentsItemView,
-             ContentsListCollection,SessionModel) {
+             ContentsListCollection, UsersItemView, UsersListCollection, SessionModel) {
   "use strict";
 
   var app = new Marionette.Application();
@@ -120,6 +122,35 @@ define([
 
 
 
+  app.showUsersPage = function () {
+    if (app.session.get('logged_in') === true) {
+
+      (this.UsersListCollection = new UsersListCollection()).fetch().then((function (res) {
+
+        app.usersItemView = new UsersItemView({
+          collection: this
+        });
+        app.maincontent.show(app.usersItemView);
+
+      }).bind(this.UsersListCollection));
+
+
+
+      // if (Backbone.history.fragment === '' || Backbone.history.fragment === 'login') {
+      //   Backbone.history.navigate('#/map', {trigger: true});
+      // }
+    } else {
+      app.showLoginPage();
+      Backbone.history.navigate('#/login');
+    }
+  };
+
+
+
+
+
+
+
   app.on('start', function () {
     app.showNavBar();
     app.showMainContent();
@@ -138,6 +169,7 @@ define([
   app.vent.on("map:show", app.showMapPage);
   app.vent.on("points:show", app.showPointsPage);
   app.vent.on("contents:show", app.showContentsPage);
+  app.vent.on("users:show", app.showUsersPage);
 
 
   return window.app = app;

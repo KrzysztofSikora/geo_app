@@ -20,6 +20,9 @@ define([
       },
       showContentsView: function() {
         window.app.vent.trigger("contents:show");
+      },
+      showUsersView: function() {
+        window.app.vent.trigger("users:show");
       }
     };
 });

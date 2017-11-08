@@ -9,6 +9,7 @@ module.exports = function (server) {
   var app = require('../../server/server.js');
 
   var Content = app.models.Content;
+  var Client = app.models.Client;
   var RoleMapping = app.models.RoleMapping;
 
 
@@ -40,5 +41,15 @@ module.exports = function (server) {
       });
   });
 
+  Client.getDataSource().connector.connect(function (err, db) {
 
+    var collection = db.collection('Client');
+
+    var query = {"coordinates": "2dsphere"}
+
+    collection.createIndex(query
+      , function (err, data) {
+        console.log(data)
+      });
+  });
 }

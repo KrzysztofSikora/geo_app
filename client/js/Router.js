@@ -9,7 +9,8 @@ define([
       "about": "showAboutView",
       "map": "showMapView",
       "points": "showPointsView",
-      "contents": "showContentsView"
+      "contents": "showContentsView",
+      "users": "showUsersView"
 
     }
   });

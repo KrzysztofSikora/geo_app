@@ -14,7 +14,12 @@
       "silenceWarnings": false
     }
   },
-  "properties": {},
+  "properties": {
+    "coordinates": {
+      "type": "Geopoint",
+      "index": true
+    }
+  },
   "validations": [],
   "relations": {
     "contents": {
