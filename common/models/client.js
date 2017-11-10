@@ -57,7 +57,7 @@ console.log("query", query);
     }, function(err, customer) {
         if (err) throw err;
 
-        console.log("customers found: " , customer);
+        // console.log("customers found: " , customer);
         cb(null, customer);
 
 

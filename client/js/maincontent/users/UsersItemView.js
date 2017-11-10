@@ -67,7 +67,6 @@ define([
         }];
 
 
-console.log("ll", this.collection)
       // Initialize a new Grid instance
       this.grid = new Backgrid.Grid({
         columns: columns,
