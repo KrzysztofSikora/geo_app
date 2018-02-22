@@ -10,9 +10,10 @@ define([
   return Marionette.ItemView.extend({
     template: Templates.usersItemView,
 
-// events:{
-//   "click #putPoint": "putPoint"
-// },
+events:{
+  // "click #putPoint": "putPoint"
+  "change #user-range": "userRange"
+},
 
 
     initPagination: function () {
@@ -26,7 +27,14 @@ define([
 
     },
 
+userRange :function () {
+  console.log("bam");
+  console.log(this.$el.find("#user-range").val());
 
+  var range = this.$el.find("#user-range").val();
+
+this.collection.fetch({ data: {"test": "test"}});
+},
 
     onRender: function () {
 
